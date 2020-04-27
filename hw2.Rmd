@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## April 26, 2020
 
-Locations of Cubs 2016 playoff games. The Cubs won their first World Series since 1908 on November 2, 2016.
+The map below shows the locations and outcomes of all Cubs 2016 playoff games. The Cubs won the 2016 World Series by beating the Cleveland Indians in Game 7, 8-7 in 10. It was their first World Series title since 1908.
 
 ```{r echo=FALSE}
 cubs_coords <- c(41.948566, -87.654871)
