@@ -1,0 +1,68 @@
+---
+title: "Cubs 2016 playoff games"
+# output: ioslides_presentation
+output:
+  xaringan::moon_reader:
+    seal: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## April 26, 2020
+
+Locations of Cubs 2016 playoff games. The Cubs won their first World Series since 1908 on November 2, 2016.
+
+```{r echo=FALSE}
+cubs_coords <- c(41.948566, -87.654871)
+giants_coords <- c(37.780867, -122.389286)
+dodgers_coords <- c(34.074055, -118.239529)
+indians_coords <- c(41.496436, -81.684660)
+
+cubs_popup <- paste("<b>Wrigley Field, Chicago IL</b>",
+                    "",
+                    "NLDS Game 1: Cubs 1, Giants 0 (Cubs lead series 1-0)",
+                    "NLDS Game 2: Cubs 5, Giants 2 (Cubs lead series 2-0)",
+                    "",
+                    "NLCS Game 1: Cubs 8, Dodgers 4 (Cubs lead series 1-0)",
+                    "NLCS Game 2: Dodgers 1, Cubs 0 (Series tied 1-1)",
+                    "NLCS Game 6: Cubs 5, Dodgers 0 (Cubs win series, 4-2)",
+                    "",
+                    "WS Game 3: Indians 1, Cubs 0 (Indians lead series 2-1)",
+                    "WS Game 4: Indians 7, Cubs 2 (Indians lead series 3-1)",
+                    "WS Game 5: Cubs 3, Indians 2 (Indians lead series 3-2)",
+                    sep="<br>")
+
+giants_popup <- paste("<b>AT&T Park, San Francisco CA</b>",
+                    "",
+                    "NLDS Game 3: Giants 6, Cubs 5 (13) (Cubs lead series 2-1)",
+                    "NLDS Game 4: Cubs 6, Giants 5 (Cubs win series 3-1)",
+                    sep="<br>")
+
+dodgers_popup <- paste("<b>Dodger Stadium, Los Angeles CA</b>",
+                    "",
+                    "NLCS Game 3: Dodgers 6, Cubs 0 (Dodgers lead series 2-1)",
+                    "NLCS Game 4: Cubs 10, Dodgers 2 (Series tied 2-2)",
+                    "NLCS Game 5: Cubs 8, Dodgers 4 (Cubs lead series 3-2)",
+                    sep="<br>")
+
+indians_popup <- paste("<b>Progressive Field, Cleveland OH</b>",
+                    "",
+                    "WS Game 1: Indians 6, Cubs 0 (Indians lead series 1-0)",
+                    "WS Game 2: Cubs 5, Indians 1 (Series tied 1-1)",
+                    "WS Game 6: Cubs 9, Indians 3 (Series tied 3-3)",
+                    "WS Game 7: Cubs 8, Indians 7 (10) (Cubs win World Series 4-3)",
+                    sep="<br>")
+```
+
+```{r echo=FALSE}
+library(leaflet)
+my_map <- leaflet() %>%
+  addTiles() %>%
+  addMarkers(lat=cubs_coords[1], lng=cubs_coords[2], popup=cubs_popup) %>%
+  addMarkers(lat=giants_coords[1], lng=giants_coords[2], popup=giants_popup) %>%
+  addMarkers(lat=dodgers_coords[1], lng=dodgers_coords[2], popup=dodgers_popup) %>%
+  addMarkers(lat=indians_coords[1], lng=indians_coords[2], popup=indians_popup)
+my_map
+```
